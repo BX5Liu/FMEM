@@ -1,0 +1,117 @@
+{
+  "sega": {
+    "repository": "https://github.com/zhchen18/SEGA",
+    "revision": "0514201653d71728015cf4aea2816c9151b94f71",
+    "files": [
+      {
+        "source": "EATD/3-model/models/graph_fusion.py",
+        "destination": "vendor/sega_graph.py",
+        "source_sha256": "7da7cefa1624eb8550113eaf8596b974ec046e91c54821abeaa37f2523308982",
+        "sha256": "ee23e61d5a6cffc8c2594977f2e7be8431dca5284bde09bd7bfc7fcc10e5f15f",
+        "patch": "upstream/sega/sega_graph.patch"
+      }
+    ]
+  },
+  "mtsp": {
+    "repository": "https://github.com/wxcwzg/MTSP",
+    "revision": "60218598d8dc782e86b06cb1bd0a941e6c5062ab",
+    "files": [
+      {
+        "source": "models/multi_scale_transformer.py",
+        "destination": "vendor/mtsp_author/multi_scale_transformer.py",
+        "source_sha256": "a08d91d09f0ad76f2e4122aebea63ac809e457f8e1d6329bc86b1be695f5692c",
+        "sha256": "eaa4e9112f68392fd8ed749aa093a46ddfcc4656ae3318190747058e440f9bcd",
+        "patch": "upstream/mtsp/multi_scale_transformer.patch"
+      },
+      {
+        "source": "models/task_graph_gat.py",
+        "destination": "vendor/mtsp_author/task_graph_gat.py",
+        "source_sha256": "ec0b9c23f6c5c0e5fe695a4d0c0b71d4beeb76ad7f7d78e40c92840220ce7e1a",
+        "sha256": "ec0b9c23f6c5c0e5fe695a4d0c0b71d4beeb76ad7f7d78e40c92840220ce7e1a",
+        "patch": null
+      },
+      {
+        "source": "utils/multi_scale_config.py",
+        "destination": "vendor/mtsp_author/multi_scale_config.py",
+        "source_sha256": "c8b17dbdd2b32725d7427780d4a9e9c8d4d5f40478a4a20b336f51041268055b",
+        "sha256": "c8b17dbdd2b32725d7427780d4a9e9c8d4d5f40478a4a20b336f51041268055b",
+        "patch": null
+      },
+      {
+        "source": "utils/task_level_spl.py",
+        "destination": "vendor/mtsp_author/task_level_spl.py",
+        "source_sha256": "b14e235203ca1eebcf66f40ec216a8a2b7b7f4cad8a67fe4699074b703bf3591",
+        "sha256": "b14e235203ca1eebcf66f40ec216a8a2b7b7f4cad8a67fe4699074b703bf3591",
+        "patch": null
+      },
+      {
+        "source": "utils/cluster_constraint_loss.py",
+        "destination": "vendor/mtsp_author/cluster_constraint_loss.py",
+        "source_sha256": "9be6679359807078deea367681b76ade63351828f2f4e9c792fc07ebf3ffae16",
+        "sha256": "9be6679359807078deea367681b76ade63351828f2f4e9c792fc07ebf3ffae16",
+        "patch": null
+      }
+    ]
+  },
+  "pttsd": {
+    "repository": "https://github.com/smidtfab/PTTSD",
+    "revision": "8ea923655b5cdaa082e783bbf3468432a1ff8d3d",
+    "files": [
+      {
+        "source": "models/pttsd.py",
+        "destination": "vendor/pttsd_author/pttsd.py",
+        "source_sha256": "9c1eb50639a7b4723a23ab1dec414c4398a151a474bc66b01639a05f55119108",
+        "sha256": "9c1eb50639a7b4723a23ab1dec414c4398a151a474bc66b01639a05f55119108",
+        "patch": null
+      },
+      {
+        "source": "utils/pttsd_config.py",
+        "destination": "vendor/pttsd_author/pttsd_config.py",
+        "source_sha256": "00f9d2ecbe694b3f9aead683adcccb00595e1559cf4cba8e40869cc9ec80ba2a",
+        "sha256": "00f9d2ecbe694b3f9aead683adcccb00595e1559cf4cba8e40869cc9ec80ba2a",
+        "patch": null
+      },
+      {
+        "source": "utils/distributions.py",
+        "destination": "vendor/pttsd_author/distributions.py",
+        "source_sha256": "fba5c0926703e1c43aee5ffe945f61f0dc9209a50bc463ccdde7b1360d24b390",
+        "sha256": "fba5c0926703e1c43aee5ffe945f61f0dc9209a50bc463ccdde7b1360d24b390",
+        "patch": null
+      }
+    ]
+  },
+  "depmamba": {
+    "repository": "https://github.com/Jiaxin-Ye/DepMamba",
+    "revision": "8a59c4dbe1b81f9c26837207c3b94089dcfb4789",
+    "files": [
+      {
+        "source": "models/DepMamba.py",
+        "destination": "dep_author/DepMamba.py",
+        "source_sha256": "a538fc1bc68f2d7f6383c1e3501be5878d134522ceff9faaafaf1065ca931938",
+        "sha256": "85723e1b6d98c758045d2230e85def33aa1f92819033fbf792e13854187b2c5c",
+        "patch": "upstream/depmamba/DepMamba.patch"
+      },
+      {
+        "source": "models/base.py",
+        "destination": "dep_author/base.py",
+        "source_sha256": "d9ad7297584928fb2afdc2af6cc7764adf5efbce37d21083c4a3de47eabc4ae5",
+        "sha256": "d9ad7297584928fb2afdc2af6cc7764adf5efbce37d21083c4a3de47eabc4ae5",
+        "patch": null
+      },
+      {
+        "source": "models/mamba/bimamba.py",
+        "destination": "dep_author/mamba/bimamba.py",
+        "source_sha256": "e9c651e6f14050c919e928d233baeabbfcbc18aa94609ab7ea2745c319dc6d59",
+        "sha256": "90a1dd2b290ab2edc15cfe34aa7b7c6865902e4589728258c2b781e27601d042",
+        "patch": "upstream/depmamba/bimamba.patch"
+      },
+      {
+        "source": "models/mamba/mm_bimamba.py",
+        "destination": "dep_author/mamba/mm_bimamba.py",
+        "source_sha256": "db44710bf69e05f396ecc63e7fc4b840e929a2820a2988b7b0d97650ed77cdfc",
+        "sha256": "1edbf06e31ff3d4724d3490e044575aa389d59ff2985e781877247f61eb9327f",
+        "patch": "upstream/depmamba/mm_bimamba.patch"
+      }
+    ]
+  }
+}

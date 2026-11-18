@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [[ -n "${FMEM_CONFIG:-}" ]]; then
+  source "$FMEM_CONFIG"
+fi
+SUPP_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="${FMEM_DATA_ROOT:?Set FMEM_DATA_ROOT to the dataset directory}"
+PYTHON="${FMEM_PYTHON:-python3}"
+OUT_SUPP="${FMEM_OUTPUT_ROOT:-$SUPP_DIR/runs}"
+CACHE="${FMEM_FEATURE_ROOT:-$OUT_SUPP}"
+export OUT_SUPP FMEM_DATA_ROOT="$ROOT" FMEM_FEATURE_ROOT="$CACHE"
+export FMEM_EDAIC_OUTPUT="$OUT_SUPP/edaic"
+export FMEM_REFERENCE_DIR="$SUPP_DIR/reference"
+export PYTHONPATH="$SUPP_DIR:$FMEM_REFERENCE_DIR${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONDONTWRITEBYTECODE=1 PYTHONHASHSEED=42 TOKENIZERS_PARALLELISM=false
+export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-6}"
+export OPENBLAS_NUM_THREADS="$OMP_NUM_THREADS" MKL_NUM_THREADS="$OMP_NUM_THREADS"
+
+TRAIN_DATA_ROOT="${TRAIN_DATA_ROOT:-$ROOT/EATD-Corpus}"
+TEST_DATA_ROOT="${TEST_DATA_ROOT:-$ROOT/EATD-Corpus2.0}"
+FEAT_SRC="$TRAIN_DATA_ROOT/local_extracted_features"
+FEAT_TGT="$TEST_DATA_ROOT/External_Test_Features"
+TRAIN_AUDIO="${TRAIN_AUDIO:-$FEAT_SRC/qwen_audio_features_162_BY_TOPIC_DEP_EMO8.npz}"
+TEST_AUDIO="${TEST_AUDIO:-$FEAT_TGT/eatd2_audio_features_DEP_EMO8_BY_TOPIC.npz}"
+BEST_TEXT="${BEST_TEXT:-$FEAT_SRC/ceef3_text_variants/eatd_text_last.npz}"
+TGT_TEXT="${TGT_TEXT:-$FEAT_TGT/ceef3_text_variants/eatd2_text_last.npz}"
+LLM_OBS="${LLM_OBS:-$FEAT_SRC/eatd_llm_logodds_observable_BY_TOPIC.npz}"
+TGT_LLM="${TGT_LLM:-$FEAT_TGT/eatd2_llm_logodds_observable_BY_TOPIC.npz}"
+VOCAL_SRC="${VOCAL_SRC:-$FEAT_SRC/eatd_audio_llm_vocal8_BY_TOPIC.npz}"
+VOCAL_TGT="${VOCAL_TGT:-$FEAT_TGT/eatd2_audio_llm_vocal8_BY_TOPIC.npz}"
+FOLD_JSON="${FOLD_JSON:-$CACHE/eatd_folds.json}"
+SEGA_FEATURES="${SEGA_FEATURES:-$ROOT/author_data/sega_eatd_author_features.npz}"
+
+export FMEM_EDAIC_MANIFEST="${FMEM_EDAIC_MANIFEST:-$CACHE/edaic_manifest.csv}"
+PHQ_ITEMS="${PHQ_ITEMS:-$ROOT/E-DAIC/labels/Detailed_PHQ8_Labels.csv}"
+QWEN_EMB="${QWEN_EMB:-$ROOT/models/Qwen/Qwen3-Embedding-8B}"
+QWEN_LLM="${QWEN_LLM:-$ROOT/models/Qwen/Qwen3-8B}"
+export AUDIO_LLM="${AUDIO_LLM:-$ROOT/models/Qwen/Qwen2-Audio-7B-Instruct}"
+MENTALBERT="${MENTALBERT:-$ROOT/models/MentalBERT_compat}"
+MINILM_PATH_FILE="${MINILM_PATH_FILE:-$ROOT/models/minilm_model_path.txt}"
+mkdir -p "$OUT_SUPP"

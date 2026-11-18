@@ -1,0 +1,3 @@
+﻿model,threshold,C,inner_auc,selection
+Feature concatenation + LR,0.9872540349431096,0.01,0.7272727272727273,development AUC
+Unstandardized logit averaging,0.6804206990716746,,,

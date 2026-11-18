@@ -1,0 +1,7 @@
+--- a/vendor/mtsp_author/multi_scale_transformer.py
++++ b/vendor/mtsp_author/multi_scale_transformer.py
+@@ -126,3 +126,3 @@
+         if use_task_graph:
+-            from models.task_graph_gat import TaskGraphGAT, TaskGraphFusion
++            from vendor.mtsp_author.task_graph_gat import TaskGraphGAT, TaskGraphFusion
+             

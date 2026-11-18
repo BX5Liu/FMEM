@@ -1,0 +1,12 @@
+{
+  "upstream_sega": "0514201653d71728015cf4aea2816c9151b94f71",
+  "upstream_caf": "15ca7fc87eafc61896caf9f95504d9eae1684cdf",
+  "sega_source_sha256": "7da7cefa1624eb8550113eaf8596b974ec046e91c54821abeaa37f2523308982",
+  "caf_source_sha256": "44750e1afbc1602ad7965efc7e5f1fb8dbd6819cdaa44c28325893fc177b8dc2",
+  "mamba": "state-spaces/mamba v1.2.0; unchanged official selective_scan_ref, fast path disabled",
+  "patches": [
+    "SEGA: replace two unconditional CUDA transfers with device transfers",
+    "CAF: nn.LayerNorm for same last-dimension normalisation, configurable modality split, official Mamba reference scan",
+    "Model internals otherwise copied from author source; driver and input protocol are separately documented"
+  ]
+}

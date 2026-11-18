@@ -1,0 +1,25 @@
+{
+  "upstream": "https://github.com/zhchen18/SEGA",
+  "commit": "0514201653d71728015cf4aea2816c9151b94f71",
+  "feature_sha256": {
+    "train_text_simple_roberta_768.npy": "b75cc66b41c76eebc5e05f77e49dba6e5d0f0b8509e6e8e793edcd2237ce4681",
+    "train_audio_new_features_b_3_len_88.npz": "55580cba2be2738c618ba6ddd0d5166dea1053f71aaa7bba82bfefe522965565",
+    "train_questions_b_3_len_768.npz": "f6d715dbe81a8a939f79a60a83a66804039f98876030fe63ad0e4b1300fdbce0",
+    "train_gender_b.npz": "11490d55b6cae3cb66228886dd91d363399150f0c1332d703c9936cccc5617a1",
+    "train_emotion_probs_b_3_7.npz": "0f4fce8737c3f6c128b5edd6f7694b618f64f26d2e4ce4f9750add37164c9ce7",
+    "valid_text_simple_roberta_768.npy": "f11e8992f38ff8e22af5405b1aff9037e982102652e7a998586aaf04d1c4dfa9",
+    "valid_audio_new_features_b_3_len_88.npz": "9c513dfec72137ca375d80acdc71ffa01efeb0aa8114b47bb53dd20617f3a6a1",
+    "valid_questions_b_3_len_768.npz": "d8e1e81797bee1f4d80ce07a793b19a280211842f7e7603a314bc15858f82053",
+    "valid_gender_b.npz": "417dc663102b3de1e5f339241a63f171a28c6e33fd0316be454d4989bc32369f",
+    "valid_emotion_probs_b_3_7.npz": "d486032c58bd8f90c52d933ae62b35dae122ea9bb9d3bafe49941b8a59151bf0"
+  },
+  "output_sha256": "4db328e194cfe3e576ebb8f51b0ed944a4dd906b976a8347f8a96c2dfa4a3d62",
+  "id_mapping": "Authors extraction loops numeric t IDs first, numeric v IDs second; all 162 labels checked against frozen corpus.",
+  "auxiliary": "Authors published question embeddings, gender and emotion probabilities; no new API annotation.",
+  "modalities": "Authors native 768-D text sequence cache (file label: RoBERTa) and 88-D eGeMAPS. Exact text checkpoint is not authenticated by the cache metadata.",
+  "topic_order": [
+    "negative",
+    "positive",
+    "neutral"
+  ]
+}

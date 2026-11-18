@@ -1,0 +1,44 @@
+{
+  "repository": "https://github.com/Jiaxin-Ye/DepMamba",
+  "commit": "8a59c4dbe1b81f9c26837207c3b94089dcfb4789",
+  "files": {
+    "DepMamba.py": {
+      "source_sha256": "a538fc1bc68f2d7f6383c1e3501be5878d134522ceff9faaafaf1065ca931938",
+      "adapted_sha256": "85723e1b6d98c758045d2230e85def33aa1f92819033fbf792e13854187b2c5c"
+    },
+    "base.py": {
+      "source_sha256": "d9ad7297584928fb2afdc2af6cc7764adf5efbce37d21083c4a3de47eabc4ae5",
+      "adapted_sha256": "d9ad7297584928fb2afdc2af6cc7764adf5efbce37d21083c4a3de47eabc4ae5"
+    },
+    "mamba/bimamba.py": {
+      "source_sha256": "e9c651e6f14050c919e928d233baeabbfcbc18aa94609ab7ea2745c319dc6d59",
+      "adapted_sha256": "90a1dd2b290ab2edc15cfe34aa7b7c6865902e4589728258c2b781e27601d042"
+    },
+    "mamba/mm_bimamba.py": {
+      "source_sha256": "db44710bf69e05f396ecc63e7fc4b840e929a2820a2988b7b0d97650ed77cdfc",
+      "adapted_sha256": "1edbf06e31ff3d4724d3490e044575aa389d59ff2985e781877247f61eb9327f"
+    }
+  },
+  "adaptations": [
+    "nn.LayerNorm and nn.SiLU replace equivalent used SpeechBrain operations; unused imports removed",
+    "Use dimension-aware modality split for shared audio/text inputs",
+    "Implement fused Mamba inner operations using PyTorch reference scan while retaining upstream bidirectional v2 forward branches",
+    "Fix optional causal_conv1d import fallback tuple assignment"
+  ],
+  "architecture": "CoSSM and EnSSM retain author parameters, shared A matrices, two directional scans and trained input/output projections",
+  "input_setting": "Audio-text transfer on frozen Qwen features; the original paper used audio-visual datasets",
+  "training": {
+    "epochs": 120,
+    "batch_size": 16,
+    "learning_rate": 8e-05,
+    "optimizer": "Adam",
+    "mm_input_size": 256,
+    "mm_output_sizes": [
+      256
+    ],
+    "d_state": 16,
+    "expand": 4,
+    "d_conv": 4,
+    "bidirectional": true
+  }
+}

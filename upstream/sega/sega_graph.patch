@@ -1,0 +1,12 @@
+--- a/vendor/sega_graph.py
++++ b/vendor/sega_graph.py
+@@ -144,3 +144,3 @@
+             A[k, k] = 1.0
+-        A = A.cuda()
++        A = A.to(emotion_feat.device)
+         adj = A.unsqueeze(0).repeat(batch_size, 1, 1).clone()
+@@ -188,3 +188,3 @@
+             emotion_idx = torch.tensor([0,1,2,3,4,5,6], dtype=torch.int64)
+-            emotion_embedding = self.emotion_lookup(emotion_idx.cuda())
++            emotion_embedding = self.emotion_lookup(emotion_idx.to(text_feat.device))
+             emotion_embeddings = emotion_embedding.unsqueeze(0).repeat(batch_size, 1, 1)

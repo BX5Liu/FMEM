@@ -1,0 +1,32 @@
+--- a/dep_author/DepMamba.py
++++ b/dep_author/DepMamba.py
+@@ -15,15 +15,5 @@
+ 
+-import speechbrain as sb
+-from speechbrain.nnet.activations import Swish
+-from speechbrain.nnet.attention import (
+-    MultiheadAttention,
+-    PositionalwiseFeedForward,
+-    RelPosMHAXL,
+-)
+-from speechbrain.nnet.hypermixing import HyperMixing
+-from speechbrain.nnet.normalization import LayerNorm
+-from speechbrain.utils.dynamic_chunk_training import DynChunkTrainConfig
+-
+-# Mamba
+-from mamba_ssm import Mamba
++from torch.nn import LayerNorm
++Swish = nn.SiLU
++from vendor.mamba_reference import Mamba
+ from .mamba.bimamba import Mamba as BiMamba 
+@@ -348,2 +338,3 @@
+ 
++        self.video_input_size = video_input_size
+         self.cossm_encoder = CoSSM(num_layers,
+@@ -379,4 +370,4 @@
+     def feature_extractor(self, x, padding_mask=None, a_inference_params = None, v_inference_params = None):
+-        xa = x[:, :, 136:]
+-        xv = x[:, :, :136]
++        xa = x[:, :, self.video_input_size:]
++        xv = x[:, :, :self.video_input_size]
+         xa = self.conv_audio(xa.permute(0,2,1)).permute(0,2,1)

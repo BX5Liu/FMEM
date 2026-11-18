@@ -1,0 +1,5 @@
+-r requirements.txt
+torch==2.5.1
+einops==0.8.2
+safetensors==0.7.0
+tqdm==4.67.3

@@ -1,0 +1,26 @@
+{
+  "pttsd": {
+    "commit": "8ea923655b5cdaa082e783bbf3468432a1ff8d3d",
+    "source_files": {
+      "distributions.py": "2548a3e47e268c4ec42113de55d6f5baeffc49110e28e4e2e7752fce90d87c59",
+      "pttsd.py": "93d9a6a7ea027b8f41ec9a6e46a070f45f45daf184d325914805e53fe618eb74",
+      "pttsd_config.py": "9323aee91ddf9f5f7b7274ed6cc75bb81bfc31dffe8268a9298bab3728d63414"
+    },
+    "compatibility_changes": [],
+    "evaluation": "Custom training/development protocol driver documented separately; not an exact published-table score claim"
+  },
+  "mtsp": {
+    "commit": "60218598d8dc782e86b06cb1bd0a941e6c5062ab",
+    "source_files": {
+      "cluster_constraint_loss.py": "3570494a0f1046c9943cef98fa42f8e3c4da7e63e6680c6d405fd009d928f3bb",
+      "multi_scale_config.py": "93ec3061cd0fb2db6aa5c1a0f8f2bf8eaa1659bcdebc709b5205feeef915e929",
+      "multi_scale_transformer.py": "37a01b1afc2e0c32347843899082bf8e120a3e1eb585b6194117e8c11f740188",
+      "task_graph_gat.py": "6c3d53b93b984b68c672098ecac931727ec01e8e238c6e005a798a6013f29d94",
+      "task_level_spl.py": "3f160741ec71f0f3115f6bb1bc3e28d5264511864dce4c54643fc6a8b1ee6f8d"
+    },
+    "compatibility_changes": [
+      "Qualified vendored task graph import path"
+    ],
+    "evaluation": "Custom training/development protocol driver documented separately; not an exact published-table score claim"
+  }
+}
